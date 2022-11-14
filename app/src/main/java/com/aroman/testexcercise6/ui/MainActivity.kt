@@ -11,6 +11,7 @@ import com.aroman.testexcercise6.databinding.ActivityMainBinding
 import com.aroman.testexcercise6.databinding.FabDialogBinding
 import com.aroman.testexcercise6.domain.entity.HeartData
 import com.aroman.testexcercise6.ui.recycler.MainActivityAdapter
+import com.aroman.testexcercise6.utils.attachLeftSwipeHelper
 import java.lang.Integer.parseInt
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             builder.setPositiveButton(getString(R.string.add)) { dialog, which ->
                 viewModel.saveHeartData(
                     HeartData(
-                        0,
                         System.currentTimeMillis(),
                         parseInt(dialogBinding.maxBloodPressure.text.toString()),
                         parseInt(dialogBinding.minBloodPressure.text.toString()),
@@ -63,6 +63,9 @@ class MainActivity : AppCompatActivity() {
         binding.swipeRefreshContainer.setOnRefreshListener {
             binding.swipeRefreshContainer.isRefreshing = true
             viewModel.loadHeartList()
+        }
+        binding.heartRecyclerView.attachLeftSwipeHelper {
+            viewModel.deleteHeartData(heartAdapter.getData()[it.adapterPosition])
         }
     }
 

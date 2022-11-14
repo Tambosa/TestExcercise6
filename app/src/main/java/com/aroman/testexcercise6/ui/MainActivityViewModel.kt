@@ -27,7 +27,17 @@ class MainActivityViewModel(private val repo: HeartRepo) : ViewModel() {
         repo.saveHeartData(heartData)
             .applySchedulers()
             .subscribe({
+                loadHeartList()
                 Log.d("@@@", heartData.toString())
+            }, {})
+            .let { compositeDisposable.add(it) }
+    }
+
+    fun deleteHeartData(heartData: HeartData) {
+        repo.deleteHeartData(heartData)
+            .applySchedulers()
+            .subscribe({
+                loadHeartList()
             }, {})
             .let { compositeDisposable.add(it) }
     }

@@ -43,6 +43,11 @@ class HeartItemViewHolder(
         if (adapterPosition != 0) {
             if (setDate(data[adapterPosition].date) == setDate(data[adapterPosition - 1].date))
                 binding.dateText.visibility = View.GONE
+            else {
+                binding.dateText.visibility = View.VISIBLE
+            }
+        } else {
+            binding.dateText.visibility = View.VISIBLE
         }
     }
 

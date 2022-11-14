@@ -12,7 +12,10 @@ class MainActivityAdapter() :
 
     fun setData(heartDataList: List<HeartData>) {
         data = heartDataList
+        notifyDataSetChanged()
     }
+
+    fun getData() = data
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = HeartItemViewHolder(
         ItemHeartBinding.inflate(
