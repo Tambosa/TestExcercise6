@@ -25,9 +25,4 @@ class FakeRepoImpl : HeartRepo {
         fakeList.add(heartData)
         return Completable.complete()
     }
-
-    override fun deleteHeartData(heartData: HeartData): Completable {
-        fakeList.remove(heartData)
-        return Completable.complete()
-    }
 }

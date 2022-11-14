@@ -7,5 +7,4 @@ import io.reactivex.Observable
 interface HeartRepo {
     fun getHeartList(): Observable<List<HeartData>>
     fun saveHeartData(heartData: HeartData): Completable
-    fun deleteHeartData(heartData: HeartData): Completable
 }

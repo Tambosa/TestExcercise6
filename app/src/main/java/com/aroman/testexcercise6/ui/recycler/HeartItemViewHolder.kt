@@ -33,7 +33,7 @@ class HeartItemViewHolder(
             GradientDrawable.Orientation.LEFT_RIGHT,
             intArrayOf(
                 Color.parseColor("#FFFFFF"),
-                Color.parseColor("#${Integer.toHexString(maxBloodPressure * 5)}DD8D"),
+                Color.parseColor("#${Integer.toHexString(maxBloodPressure * 4)}DD8D"),
                 Color.parseColor("#FFFFFF"),
             )
         )

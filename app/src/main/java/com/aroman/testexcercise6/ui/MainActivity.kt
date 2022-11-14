@@ -6,17 +6,16 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aroman.testexcercise6.R
-import com.aroman.testexcercise6.data.FakeRepoImpl
+import com.aroman.testexcercise6.data.FirestoreRepoImpl
 import com.aroman.testexcercise6.databinding.ActivityMainBinding
 import com.aroman.testexcercise6.databinding.FabDialogBinding
 import com.aroman.testexcercise6.domain.entity.HeartData
 import com.aroman.testexcercise6.ui.recycler.MainActivityAdapter
-import com.aroman.testexcercise6.utils.attachLeftSwipeHelper
 import java.lang.Integer.parseInt
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel = MainActivityViewModel(FakeRepoImpl())
+    private val viewModel = MainActivityViewModel(FirestoreRepoImpl())
     private lateinit var heartAdapter: MainActivityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,9 +62,6 @@ class MainActivity : AppCompatActivity() {
         binding.swipeRefreshContainer.setOnRefreshListener {
             binding.swipeRefreshContainer.isRefreshing = true
             viewModel.loadHeartList()
-        }
-        binding.heartRecyclerView.attachLeftSwipeHelper {
-            viewModel.deleteHeartData(heartAdapter.getData()[it.adapterPosition])
         }
     }
 
