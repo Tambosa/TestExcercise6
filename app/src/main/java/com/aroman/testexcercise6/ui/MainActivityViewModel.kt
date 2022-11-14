@@ -1,4 +1,4 @@
-package com.aroman.testexcercise6
+package com.aroman.testexcercise6.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

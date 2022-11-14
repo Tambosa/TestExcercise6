@@ -10,11 +10,11 @@ class FakeRepoImpl : HeartRepo {
         return Observable.just(
             listOf(
                 HeartData(0, 1668421033371, 137, 71, 59),
-                HeartData(0, 1668421033371, 126, 67, 49),
-                HeartData(0, 1668421033371, 141, 64, 63),
-                HeartData(0, 1668421033371, 127, 73, 58),
-                HeartData(0, 1668421033371, 150, 83, 55),
-                HeartData(0, 1668421033371, 129, 79, 53),
+                HeartData(0, 1668021033371, 126, 67, 49),
+                HeartData(0, 1668011033371, 141, 64, 63),
+                HeartData(0, 1666421033371, 127, 73, 58),
+                HeartData(0, 1666411033371, 150, 83, 55),
+                HeartData(0, 1664421033371, 129, 79, 53),
             )
         )
     }
