@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aroman.testexcercise6.databinding.ItemHeartBinding
 import com.aroman.testexcercise6.domain.entity.HeartData
 
-class MainActivityAdapter : RecyclerView.Adapter<HeartItemViewHolder>() {
+class MainActivityAdapter(private val heartSymbol: String) :
+    RecyclerView.Adapter<HeartItemViewHolder>() {
     private var data = listOf<HeartData>()
 
     fun setData(heartDataList: List<HeartData>) {
@@ -18,7 +19,8 @@ class MainActivityAdapter : RecyclerView.Adapter<HeartItemViewHolder>() {
             LayoutInflater.from(parent.context),
             parent,
             false
-        )
+        ),
+        heartSymbol
     )
 
     override fun onBindViewHolder(holder: HeartItemViewHolder, position: Int) {

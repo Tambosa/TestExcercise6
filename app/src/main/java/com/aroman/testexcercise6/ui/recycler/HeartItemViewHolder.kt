@@ -6,7 +6,7 @@ import com.aroman.testexcercise6.domain.entity.HeartData
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HeartItemViewHolder(private val binding: ItemHeartBinding) :
+class HeartItemViewHolder(private val binding: ItemHeartBinding, private val heartSymbol: String) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: HeartData) = with(binding) {
@@ -15,10 +15,10 @@ class HeartItemViewHolder(private val binding: ItemHeartBinding) :
         maxBloodPressure.text = item.maxBloodPressure.toString()
         minBloodPressure.text = item.minBloodPressure.toString()
         heartRate.text = StringBuilder()
-            .append(heartRate.text)
+            .append(heartSymbol)
             .append(item.heartRate.toString())
     }
 
     private fun setDate(time: Long) = SimpleDateFormat("dd MMMM").format(Date(time))
-    private fun setTime(time:Long) = SimpleDateFormat("HH:mm").format(Date(time))
+    private fun setTime(time: Long) = SimpleDateFormat("HH:mm").format(Date(time))
 }
