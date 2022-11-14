@@ -29,11 +29,14 @@ class HeartItemViewHolder(
     }
 
     private fun setBackground(maxBloodPressure: Int) {
+        var tempBloodPressure = maxBloodPressure * 5
+        if (tempBloodPressure > 255) tempBloodPressure = 255
+        val hex = Integer.toHexString(tempBloodPressure)
         binding.heartDataLayout.background = GradientDrawable(
             GradientDrawable.Orientation.LEFT_RIGHT,
             intArrayOf(
                 Color.parseColor("#FFFFFF"),
-                Color.parseColor("#${Integer.toHexString(maxBloodPressure * 4)}DD8D"),
+                Color.parseColor("#${hex}DD8D"),
                 Color.parseColor("#FFFFFF"),
             )
         )
