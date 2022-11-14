@@ -19,8 +19,7 @@ class MainActivityAdapter(private val heartSymbol: String) :
             LayoutInflater.from(parent.context),
             parent,
             false
-        ),
-        heartSymbol
+        ), data, heartSymbol
     )
 
     override fun onBindViewHolder(holder: HeartItemViewHolder, position: Int) {

@@ -20,8 +20,10 @@ class MainActivity : AppCompatActivity() {
         heartAdapter = MainActivityAdapter(getString(R.string.heart_symbol))
 
         binding.swipeRefreshContainer.isRefreshing = true
-        initRecyclerView()
         initViewModel()
+        initRecyclerView()
+
+        viewModel.loadHeartList()
     }
 
     private fun initRecyclerView() {
@@ -38,6 +40,5 @@ class MainActivity : AppCompatActivity() {
             heartAdapter.setData(it)
             binding.swipeRefreshContainer.isRefreshing = false
         }
-        viewModel.loadHeartList()
     }
 }
