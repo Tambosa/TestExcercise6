@@ -1,5 +1,6 @@
 package com.aroman.testexcercise6.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,7 +26,9 @@ class MainActivityViewModel(private val repo: HeartRepo) : ViewModel() {
     fun saveHeartData(heartData: HeartData) {
         repo.saveHeartData(heartData)
             .applySchedulers()
-            .subscribe({}, {})
+            .subscribe({
+                Log.d("@@@", heartData.toString())
+            }, {})
             .let { compositeDisposable.add(it) }
     }
 

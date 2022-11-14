@@ -6,4 +6,5 @@
     <dimen name="text_size_large">24sp</dimen>
     <dimen name="recycler_item_margin">2dp</dimen>
     <dimen name="card_view_elevation">5dp</dimen>
+    <dimen name="fab_margin">35dp</dimen>
 </resources>
