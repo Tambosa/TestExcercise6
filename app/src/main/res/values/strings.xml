@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TestExcercise6</string>
+    <string name="divider">/</string>
 </resources>
