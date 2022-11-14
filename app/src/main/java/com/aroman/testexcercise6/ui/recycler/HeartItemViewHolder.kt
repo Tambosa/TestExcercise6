@@ -1,8 +1,10 @@
 package com.aroman.testexcercise6.ui.recycler
 
-import android.opengl.Visibility
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.aroman.testexcercise6.R
 import com.aroman.testexcercise6.databinding.ItemHeartBinding
 import com.aroman.testexcercise6.domain.entity.HeartData
 import java.text.SimpleDateFormat
@@ -11,7 +13,6 @@ import java.util.*
 class HeartItemViewHolder(
     private val binding: ItemHeartBinding,
     private val data: List<HeartData>,
-    private val heartSymbol: String
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
@@ -21,14 +22,26 @@ class HeartItemViewHolder(
         maxBloodPressure.text = item.maxBloodPressure.toString()
         minBloodPressure.text = item.minBloodPressure.toString()
         heartRate.text = StringBuilder()
-            .append(heartSymbol)
+            .append(itemView.context.getString(R.string.heart_symbol))
             .append(item.heartRate.toString())
         setDateVisibility()
+        setBackground(item.maxBloodPressure.toString().takeLast(2).toInt())
+    }
+
+    private fun setBackground(maxBloodPressure: Int) {
+        binding.heartDataLayout.background = GradientDrawable(
+            GradientDrawable.Orientation.LEFT_RIGHT,
+            intArrayOf(
+                Color.parseColor("#FFFFFF"),
+                Color.parseColor("#${Integer.toHexString(maxBloodPressure * 5)}DD8D"),
+                Color.parseColor("#FFFFFF"),
+            )
+        )
     }
 
     private fun setDateVisibility() {
         if (adapterPosition != 0) {
-            if (setDate(data[adapterPosition].date) == setDate(data[adapterPosition-1].date))
+            if (setDate(data[adapterPosition].date) == setDate(data[adapterPosition - 1].date))
                 binding.dateText.visibility = View.GONE
         }
     }
